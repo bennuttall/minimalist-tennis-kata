@@ -1,3 +1,3 @@
 class Game:
     def get_score(self):
-        pass
+        return '0-0'
