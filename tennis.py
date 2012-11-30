@@ -1,6 +1,9 @@
 class Game:
+    def __init__(self):
+        self.score = (0, 0)
+
     def get_score(self):
-        return '0-0'
+        return '%s-%s' % (self.score[0], self.score[1])
 
     def point_scored(self, player):
-        pass
+        self.score = (15, 0)
