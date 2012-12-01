@@ -17,6 +17,7 @@ class Game:
         (40, 30): 'Win',
         'Deuce': 'Advantage',
         'Advantage Player 1': 'Win',
+        'Advantage Player 2': 'Win',
         }
 
     def __init__(self):
@@ -28,7 +29,7 @@ class Game:
         return self.score
 
     def point_scored(self, player):
-        if player == 1:
+        if player == 1 or type(self.score) is str:
             self.score = Game.point_scores[self.score]
         else:
             reversed_score = tuple(reversed(self.score))
