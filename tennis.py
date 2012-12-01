@@ -15,4 +15,7 @@ class Game:
         return 'Player 1 Wins'
 
     def point_scored(self, player):
-        self.score = Game.point_scores[self.score]
+        if player == 1:
+            self.score = Game.point_scores[self.score]
+        else:
+            self.score = (15, 15)
