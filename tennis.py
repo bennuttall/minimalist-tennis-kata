@@ -20,16 +20,15 @@ class Game:
     def get_score(self):
         if type(self.score) is tuple:
             return '%s-%s' % self.score
-        return 'Player %s Wins' % self.scoring_player
+        return self.score
 
     def point_scored(self, player):
-        self.scoring_player = player
         if player == 1:
             self.score = Game.point_scores[self.score]
         else:
             reversed_score = tuple(reversed(self.score))
-            new_score = Game.point_scores[reversed_score]
-            if type(new_score) is tuple:
-                self.score = tuple(reversed(new_score))
-            else:
-                self.score = new_score
+            self.score = Game.point_scores[reversed_score]
+            if type(self.score) is tuple:
+                self.score = tuple(reversed(self.score))
+        if type(self.score) is str:
+            self.score = 'Player %s Wins' % player
