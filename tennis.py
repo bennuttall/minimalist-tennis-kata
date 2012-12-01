@@ -13,6 +13,7 @@ class Game:
         (30, 30): (40, 30),
         (30, 40): 'Deuce',
         (40, 0): 'Win',
+        'Deuce': 'Advantage',
         }
 
     def __init__(self):
@@ -34,3 +35,5 @@ class Game:
         if type(self.score) is str:
             if self.score == 'Win':
                 self.score = 'Player %s Wins' % player
+            if self.score == 'Advantage':
+                self.score = 'Advantage Player %s' % player
