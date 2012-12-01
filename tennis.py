@@ -4,6 +4,7 @@ class Game:
         (15, 0): (30, 0),
         (30, 0): (40, 0),
         (40, 0): 'Win',
+        (0, 15): (15, 15),
         }
 
     def __init__(self):
@@ -18,4 +19,6 @@ class Game:
         if player == 1:
             self.score = Game.point_scores[self.score]
         else:
-            self.score = (15, 15)
+            reversed_score = tuple(reversed(self.score))
+            new_score = Game.point_scores[reversed_score]
+            self.score = tuple(reversed(new_score))
