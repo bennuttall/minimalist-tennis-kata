@@ -13,6 +13,8 @@ class Game:
         (30, 30): (40, 30),
         (30, 40): 'Deuce',
         (40, 0): 'Win',
+        (40, 15): 'Win',
+        (40, 30): 'Win',
         'Deuce': 'Advantage',
         }
 
@@ -33,7 +35,11 @@ class Game:
             if type(self.score) is tuple:
                 self.score = tuple(reversed(self.score))
         if type(self.score) is str:
-            if self.score == 'Win':
-                self.score = 'Player %s Wins' % player
-            if self.score == 'Advantage':
-                self.score = 'Advantage Player %s' % player
+            self.score = self.string_score(player)
+
+    def string_score(self, player):
+        if self.score == 'Advantage':
+            return 'Advantage Player %s' % player
+        elif self.score == 'Win':
+            return 'Player %s Wins' % player
+        return 'Deuce'
