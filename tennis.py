@@ -27,8 +27,8 @@ class Game:
         return self.score
 
     def point_scored(self, player):
-        if self.score[:9] == 'Advantage':
-            self.score = 'Win' if self.score[-1:] == str(player) else 'Deuce'
+        if self.is_advantage():
+            self.score = 'Win' if self.has_advantage(player) else 'Deuce'
         elif player == 1 or type(self.score) is str:
             self.score = Game.point_scores[self.score]
         else:
@@ -49,3 +49,9 @@ class Game:
         if type(new_score) is tuple:
             new_score = tuple(reversed(new_score))
         return new_score
+
+    def is_advantage(self):
+        return self.score[:9] == 'Advantage'
+
+    def has_advantage(self, player):
+        return self.score[-1:] == str(player)
