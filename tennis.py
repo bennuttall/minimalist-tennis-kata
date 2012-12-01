@@ -16,8 +16,6 @@ class Game:
         (40, 15): 'Win',
         (40, 30): 'Win',
         'Deuce': 'Advantage',
-        'Advantage Player 1': 'Win',
-        'Advantage Player 2': 'Win',
         }
 
     def __init__(self):
