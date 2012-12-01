@@ -2,6 +2,7 @@ class Game:
     point_scores = {
         (0, 0): (15, 0),
         (15, 0): (30, 0),
+        (30, 0): (40, 0),
         }
 
     def __init__(self):
