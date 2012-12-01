@@ -103,5 +103,19 @@ class Test(unittest.TestCase):
         game.point_scored(1)
         self.assertEqual(game.get_score(), 'Player 1 Wins')
 
+    def test_player_two_scores_from_own_advantage_player_two_wins(self):
+        game = Game()
+        game.point_scored(1)
+        game.point_scored(1)
+        game.point_scored(1)
+        game.point_scored(2)
+        game.point_scored(2)
+        game.point_scored(2)
+        self.assertEqual(game.get_score(), 'Deuce')
+        game.point_scored(2)
+        self.assertEqual(game.get_score(), 'Advantage Player 2')
+        game.point_scored(2)
+        self.assertEqual(game.get_score(), 'Player 2 Wins')
+
 if __name__ == '__main__':
     unittest.main()
