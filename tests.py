@@ -50,7 +50,7 @@ class Test(unittest.TestCase):
         game.point_scored(2)
         self.assertEqual(game.get_score(), '0-30')
 
-    def test_one_scores_twice_and_player_two_scores_twice_score_is_30_30(self):
+    def test_both_players_score_twice_score_is_30_30(self):
         game = Game()
         game.point_scored(1)
         game.point_scored(1)
