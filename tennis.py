@@ -11,6 +11,7 @@ class Game:
         (30, 0): (40, 0),
         (30, 15): (40, 15),
         (30, 30): (40, 30),
+        (30, 40): 'Deuce',
         (40, 0): 'Win',
         }
 
@@ -31,4 +32,5 @@ class Game:
             if type(self.score) is tuple:
                 self.score = tuple(reversed(self.score))
         if type(self.score) is str:
-            self.score = 'Player %s Wins' % player
+            if self.score == 'Win':
+                self.score = 'Player %s Wins' % player
