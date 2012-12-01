@@ -29,7 +29,9 @@ class Game:
         return self.score
 
     def point_scored(self, player):
-        if player == 1 or type(self.score) is str:
+        if self.score[:9] == 'Advantage':
+            self.score = 'Win' if self.score[-1:] == str(player) else 'Deuce'
+        elif player == 1 or type(self.score) is str:
             self.score = Game.point_scores[self.score]
         else:
             self.score = self.reverse_score()
